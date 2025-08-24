@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect</title>
+  <script>
+    async function redirectForTunisia() {
+      try {
+        // Free geolocation API (can change provider if needed)
+        let response = await fetch("https://ipapi.co/json/");
+        let data = await response.json();
+
+        // Check if country code is Tunisia (TN)
+        if (data.country_code === "TN") {
+          window.location.href = "https://3ak3ek.com"; // Change to your redirect link
+        } else {
+          document.body.innerHTML = "<h2>Welcome! This page is not redirected for your country.</h2>";
+        }
+      } catch (e) {
+        console.error("Geo lookup failed", e);
+      }
+    }
+    redirectForTunisia();
+  </script>
+</head>
+<body>
+  <p>Checking your location...</p>
+</body>
+</html>
